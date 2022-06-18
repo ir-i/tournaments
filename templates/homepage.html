@@ -7,5 +7,18 @@
     </head>
     <body>
         <h1>Homepage</h1>
+        <nav>
+            {% if user.is_authenticated %}
+                <p>Oh, hi {{ user.username }}</p>
+                <form action="{% url 'users:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+            {% else %}
+                <li><a href="{% url 'users:login' %}">Login</a></li>
+            {% endif %}
+        </nav>
+        {% block content %}
+        {% endblock %}
     </body>
 </html>
