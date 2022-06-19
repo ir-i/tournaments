@@ -1,3 +1,13 @@
+
 from django.contrib import admin
 
-# Register your models here.
+from .models import Title
+
+
+
+class TitleAdmin (admin.ModelAdmin):
+
+    list_display =  ('shortname', 'name')
+
+
+admin.site.register(Title, TitleAdmin)
