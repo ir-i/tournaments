@@ -20,3 +20,13 @@ class Discipline (models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Faction (models.Model):
+
+    name_ru = models.CharField(max_length=128)
+    name_en = models.CharField(max_length=128)
+    title = models.ForeignKey(Title, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.name_ru

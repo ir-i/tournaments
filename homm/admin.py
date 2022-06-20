@@ -1,7 +1,7 @@
 
 from django.contrib import admin
 
-from .models import Title, Discipline
+from . import models
 
 
 
@@ -17,5 +17,12 @@ class DisciplineAdmin (admin.ModelAdmin):
 
 
 
-admin.site.register(Title, TitleAdmin)
-admin.site.register(Discipline, DisciplineAdmin)
+class FactionAdmin (admin.ModelAdmin):
+
+    list_display =  ('name_ru', 'name_en')
+
+
+
+admin.site.register(models.Title, TitleAdmin)
+admin.site.register(models.Discipline, DisciplineAdmin)
+admin.site.register(models.Faction, FactionAdmin)
