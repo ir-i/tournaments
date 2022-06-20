@@ -23,6 +23,13 @@ class FactionAdmin (admin.ModelAdmin):
 
 
 
+class HeroAdmin (admin.ModelAdmin):
+
+    list_display =  ('name_ru', 'name_en')
+
+
+
 admin.site.register(models.Title, TitleAdmin)
 admin.site.register(models.Discipline, DisciplineAdmin)
 admin.site.register(models.Faction, FactionAdmin)
+admin.site.register(models.Hero, HeroAdmin)
