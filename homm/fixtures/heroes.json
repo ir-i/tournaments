@@ -1,0 +1,1130 @@
+[
+	{
+		"model": "homm.hero",
+		"pk": 1,
+		"fields": {
+			"name_ru": "Аргат",
+			"name_en": "Urghat",
+			"faction": 4,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 2,
+		"fields": {
+			"name_ru": "Гаруна",
+			"name_en": "Garuna",
+			"faction": 4,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 3,
+		"fields": {
+			"name_ru": "Готай",
+			"name_en": "Gotai",
+			"faction": 4,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 4,
+		"fields": {
+			"name_ru": "Гошак",
+			"name_en": "Gorshak",
+			"faction": 4,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 5,
+		"fields": {
+			"name_ru": "Киган",
+			"name_en": "Kilghan",
+			"faction": 4,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 6,
+		"fields": {
+			"name_ru": "Краг",
+			"name_en": "Kragh",
+			"faction": 4,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 7,
+		"fields": {
+			"name_ru": "Куджин",
+			"name_en": "Kujin",
+			"faction": 4,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 8,
+		"fields": {
+			"name_ru": "Курак",
+			"name_en": "Quroq",
+			"faction": 4,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 9,
+		"fields": {
+			"name_ru": "Тилсек",
+			"name_en": "Telsek",
+			"faction": 4,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 10,
+		"fields": {
+			"name_ru": "Хаггеш",
+			"name_en": "Haggash",
+			"faction": 4,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 11,
+		"fields": {
+			"name_ru": "Шак'Карукат",
+			"name_en": "Shak'Karukat",
+			"faction": 4,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 12,
+		"fields": {
+			"name_ru": "Аграил",
+			"name_en": "Agrael",
+			"faction": 5,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 13,
+		"fields": {
+			"name_ru": "Аластор",
+			"name_en": "Alastor",
+			"faction": 5,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 14,
+		"fields": {
+			"name_ru": "Властелин",
+			"name_en": "Sovereign",
+			"faction": 5,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 15,
+		"fields": {
+			"name_ru": "Грок",
+			"name_en": "Grok",
+			"faction": 5,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 16,
+		"fields": {
+			"name_ru": "Грол",
+			"name_en": "Grawl",
+			"faction": 5,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 17,
+		"fields": {
+			"name_ru": "Джезебет",
+			"name_en": "Jezebeth",
+			"faction": 5,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 18,
+		"fields": {
+			"name_ru": "Дэлеб",
+			"name_en": "Deleb",
+			"faction": 5,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 19,
+		"fields": {
+			"name_ru": "Марбас",
+			"name_en": "Marbas",
+			"faction": 5,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 20,
+		"fields": {
+			"name_ru": "Ниброс",
+			"name_en": "Nebiros",
+			"faction": 5,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 21,
+		"fields": {
+			"name_ru": "Нимус",
+			"name_en": "Nymus",
+			"faction": 5,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 22,
+		"fields": {
+			"name_ru": "Орландо",
+			"name_en": "Orlando",
+			"faction": 5,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 23,
+		"fields": {
+			"name_ru": "Айрис",
+			"name_en": "Irina",
+			"faction": 3,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 24,
+		"fields": {
+			"name_ru": "Аксель",
+			"name_en": "Klaus",
+			"faction": 3,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 25,
+		"fields": {
+			"name_ru": "Аларик",
+			"name_en": "Alaric",
+			"faction": 3,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 26,
+		"fields": {
+			"name_ru": "Валерия",
+			"name_en": "Valeria",
+			"faction": 3,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 27,
+		"fields": {
+			"name_ru": "Витторио",
+			"name_en": "Vittorio",
+			"faction": 3,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 28,
+		"fields": {
+			"name_ru": "Годрик",
+			"name_en": "Godric",
+			"faction": 3,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 29,
+		"fields": {
+			"name_ru": "Дугал",
+			"name_en": "Dougal",
+			"faction": 3,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 30,
+		"fields": {
+			"name_ru": "Изабель",
+			"name_en": "Isabel",
+			"faction": 3,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 31,
+		"fields": {
+			"name_ru": "Ласло",
+			"name_en": "Laszlo",
+			"faction": 3,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 32,
+		"fields": {
+			"name_ru": "Мив",
+			"name_en": "Maeve",
+			"faction": 3,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 33,
+		"fields": {
+			"name_ru": "Рутгер",
+			"name_en": "Rutger",
+			"faction": 3,
+			"disciplines": [
+				2
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 34,
+		"fields": {
+			"name_ru": "Фрида",
+			"name_en": "Freyda",
+			"faction": 3,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 35,
+		"fields": {
+			"name_ru": "Эллайна",
+			"name_en": "Ellaine",
+			"faction": 3,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 36,
+		"fields": {
+			"name_ru": "Арантир",
+			"name_en": "Arantir",
+			"faction": 7,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 37,
+		"fields": {
+			"name_ru": "Влад",
+			"name_en": "Vladimir",
+			"faction": 7,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 38,
+		"fields": {
+			"name_ru": "Дейдра",
+			"name_en": "Deirdre",
+			"faction": 7,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 39,
+		"fields": {
+			"name_ru": "Золтан",
+			"name_en": "Zoltan",
+			"faction": 7,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 40,
+		"fields": {
+			"name_ru": "Каспар",
+			"name_en": "Kaspar",
+			"faction": 7,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 41,
+		"fields": {
+			"name_ru": "Лукреция",
+			"name_en": "Lucretia",
+			"faction": 7,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 42,
+		"fields": {
+			"name_ru": "Маркел",
+			"name_en": "Markal",
+			"faction": 7,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 43,
+		"fields": {
+			"name_ru": "Наадир",
+			"name_en": "Naadir",
+			"faction": 7,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 44,
+		"fields": {
+			"name_ru": "Николас",
+			"name_en": "Nicolai",
+			"faction": 7,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 45,
+		"fields": {
+			"name_ru": "Орнелла",
+			"name_en": "Ornella",
+			"faction": 7,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 46,
+		"fields": {
+			"name_ru": "Орсон",
+			"name_en": "Orson",
+			"faction": 7,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 47,
+		"fields": {
+			"name_ru": "Равэнна",
+			"name_en": "Raven",
+			"faction": 7,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 48,
+		"fields": {
+			"name_ru": "Аларон",
+			"name_en": "Alaron",
+			"faction": 6,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 49,
+		"fields": {
+			"name_ru": "Анвэн",
+			"name_en": "Anwen",
+			"faction": 6,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 50,
+		"fields": {
+			"name_ru": "Вингаэль",
+			"name_en": "Wyngaal",
+			"faction": 6,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 51,
+		"fields": {
+			"name_ru": "Винраэль",
+			"name_en": "Vinrael",
+			"faction": 6,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 52,
+		"fields": {
+			"name_ru": "Гильраэн",
+			"name_en": "Gilraen",
+			"faction": 6,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 53,
+		"fields": {
+			"name_ru": "Дираэль",
+			"name_en": "Dirael",
+			"faction": 6,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 54,
+		"fields": {
+			"name_ru": "Ильфина",
+			"name_en": "Ylthin",
+			"faction": 6,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 55,
+		"fields": {
+			"name_ru": "Оссир",
+			"name_en": "Ossir",
+			"faction": 6,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 56,
+		"fields": {
+			"name_ru": "Призрак",
+			"name_en": "Ghost",
+			"faction": 6,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 57,
+		"fields": {
+			"name_ru": "Таланар",
+			"name_en": "Talanar",
+			"faction": 6,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 58,
+		"fields": {
+			"name_ru": "Файдаэн",
+			"name_en": "Findan",
+			"faction": 6,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 59,
+		"fields": {
+			"name_ru": "Бранд",
+			"name_en": "Brand",
+			"faction": 8,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 60,
+		"fields": {
+			"name_ru": "Вульфстен",
+			"name_en": "Wulfstan",
+			"faction": 8,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 61,
+		"fields": {
+			"name_ru": "Ибба",
+			"name_en": "Ebba",
+			"faction": 8,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 62,
+		"fields": {
+			"name_ru": "Инга",
+			"name_en": "Inga",
+			"faction": 8,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 63,
+		"fields": {
+			"name_ru": "Ингвар",
+			"name_en": "Ingvar",
+			"faction": 8,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 64,
+		"fields": {
+			"name_ru": "Карли",
+			"name_en": "Karli",
+			"faction": 8,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 65,
+		"fields": {
+			"name_ru": "Король Толгар",
+			"name_en": "King Tolghar",
+			"faction": 8,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 66,
+		"fields": {
+			"name_ru": "Рольф",
+			"name_en": "Rolf",
+			"faction": 8,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 67,
+		"fields": {
+			"name_ru": "Свея",
+			"name_en": "Svea",
+			"faction": 8,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 68,
+		"fields": {
+			"name_ru": "Хангвул",
+			"name_en": "Hangvul",
+			"faction": 8,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 69,
+		"fields": {
+			"name_ru": "Хельмар",
+			"name_en": "Helmar",
+			"faction": 8,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 70,
+		"fields": {
+			"name_ru": "Эрлинг",
+			"name_en": "Erling",
+			"faction": 8,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 71,
+		"fields": {
+			"name_ru": "Вайшан",
+			"name_en": "Vayshan",
+			"faction": 2,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 72,
+		"fields": {
+			"name_ru": "Илайя",
+			"name_en": "Ylaya",
+			"faction": 2,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 73,
+		"fields": {
+			"name_ru": "Иранна",
+			"name_en": "Yrwanna",
+			"faction": 2,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 74,
+		"fields": {
+			"name_ru": "Ирбет",
+			"name_en": "Yrbeth",
+			"faction": 2,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 75,
+		"fields": {
+			"name_ru": "Кифра",
+			"name_en": "Kythra",
+			"faction": 2,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 76,
+		"fields": {
+			"name_ru": "Летос",
+			"name_en": "Lethos",
+			"faction": 2,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 77,
+		"fields": {
+			"name_ru": "Раилаг",
+			"name_en": "Raelag",
+			"faction": 2,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 78,
+		"fields": {
+			"name_ru": "Синитар",
+			"name_en": "Sinitar",
+			"faction": 2,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 79,
+		"fields": {
+			"name_ru": "Соргал",
+			"name_en": "Sorgal",
+			"faction": 2,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 80,
+		"fields": {
+			"name_ru": "Тралсай",
+			"name_en": "Thralsai",
+			"faction": 2,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 81,
+		"fields": {
+			"name_ru": "Шадия",
+			"name_en": "Shadya",
+			"faction": 2,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 82,
+		"fields": {
+			"name_ru": "Эрин",
+			"name_en": "Eruina",
+			"faction": 2,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 83,
+		"fields": {
+			"name_ru": "Джалиб",
+			"name_en": "Galib",
+			"faction": 1,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 84,
+		"fields": {
+			"name_ru": "Зехир",
+			"name_en": "Zehir",
+			"faction": 1,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 85,
+		"fields": {
+			"name_ru": "Маахир",
+			"name_en": "Maahir",
+			"faction": 1,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 86,
+		"fields": {
+			"name_ru": "Назир",
+			"name_en": "Nathir",
+			"faction": 1,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 87,
+		"fields": {
+			"name_ru": "Нархиз",
+			"name_en": "Narxes",
+			"faction": 1,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 88,
+		"fields": {
+			"name_ru": "Нура",
+			"name_en": "Nur",
+			"faction": 1,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 89,
+		"fields": {
+			"name_ru": "Ора",
+			"name_en": "Jhora",
+			"faction": 1,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 90,
+		"fields": {
+			"name_ru": "Раззак",
+			"name_en": "Razzak",
+			"faction": 1,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 91,
+		"fields": {
+			"name_ru": "Сайрус",
+			"name_en": "Cyrus",
+			"faction": 1,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 92,
+		"fields": {
+			"name_ru": "Тимхан",
+			"name_en": "Timerkhan",
+			"faction": 1,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 93,
+		"fields": {
+			"name_ru": "Фаиз",
+			"name_en": "Faiz",
+			"faction": 1,
+			"disciplines": [
+				1
+			]
+		}
+	},
+	{
+		"model": "homm.hero",
+		"pk": 94,
+		"fields": {
+			"name_ru": "Хафиз",
+			"name_en": "Havez",
+			"faction": 1,
+			"disciplines": [
+				1
+			]
+		}
+	}
+]

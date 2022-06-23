@@ -1,0 +1,74 @@
+[
+	{
+        "model": "homm.faction",
+        "pk": 1,
+        "fields": {
+            "name_ru": "Академия волшебства",
+            "name_en": "Academy",
+            "title": 1
+        }
+    },
+    {
+        "model": "homm.faction",
+        "pk": 2,
+        "fields": {
+            "name_ru": "Лига Теней",
+            "name_en": "Dungeon",
+            "title": 1
+        }
+    },
+    {
+        "model": "homm.faction",
+        "pk": 3,
+        "fields": {
+            "name_ru": "Орден Порядка",
+            "name_en": "Haven",
+            "title": 1
+        }
+    },
+    {
+        "model": "homm.faction",
+        "pk": 4,
+        "fields": {
+            "name_ru": "Великая Орда",
+            "name_en": "Stronghold",
+            "title": 1
+        }
+    },
+    {
+        "model": "homm.faction",
+        "pk": 5,
+        "fields": {
+            "name_ru": "Инферно",
+            "name_en": "Inferno",
+            "title": 1
+        }
+    },
+    {
+        "model": "homm.faction",
+        "pk": 6,
+        "fields": {
+            "name_ru": "Лесной Союз",
+            "name_en": "Sylvan",
+            "title": 1
+        }
+    },
+    {
+        "model": "homm.faction",
+        "pk": 7,
+        "fields": {
+            "name_ru": "Некрополис",
+            "name_en": "Necropolis",
+            "title": 1
+        }
+    },
+    {
+        "model": "homm.faction",
+        "pk": 8,
+        "fields": {
+            "name_ru": "Северные кланы",
+            "name_en": "Fortress",
+            "title": 1
+        }
+    }
+]

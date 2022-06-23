@@ -1,0 +1,20 @@
+[
+	{
+        "model": "homm.map",
+        "pk": 1,
+        "fields": {
+            "name": "Random Tactical Arena 2.7",
+            "shortname": "RTA 2.7",
+			"discipline": 1
+        }
+    },
+    {
+        "model": "homm.map",
+        "pk": 2,
+        "fields": {
+            "name": "Random Tactical Arena 2.8",
+            "shortname": "RTA 2.8",
+			"discipline": 1
+        }
+    }
+]

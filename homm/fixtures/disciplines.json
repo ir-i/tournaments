@@ -1,0 +1,20 @@
+[
+	{
+        "model": "homm.discipline",
+        "pk": 1,
+        "fields": {
+            "name": "Random Tactical Arena",
+            "shortname": "RTA",
+            "title": 1
+        }
+    },
+    {
+        "model": "homm.discipline",
+        "pk": 2,
+        "fields": {
+            "name": "Tournament Edition",
+            "shortname": "TE",
+            "title": 1
+        }
+    }
+]

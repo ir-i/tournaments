@@ -1,0 +1,10 @@
+[
+    {
+        "model": "homm.title",
+        "pk": 1,
+        "fields": {
+            "name": "Heroes of Might and Magic V",
+            "shortname": "Heroes V"
+        }
+    }
+]
