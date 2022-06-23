@@ -17,6 +17,12 @@ class DisciplineAdmin (admin.ModelAdmin):
 
 
 
+class MapAdmin (admin.ModelAdmin):
+
+    list_display =  ('shortname', 'name')
+
+
+
 class FactionAdmin (admin.ModelAdmin):
 
     list_display =  ('name_ru', 'name_en')
@@ -31,5 +37,6 @@ class HeroAdmin (admin.ModelAdmin):
 
 admin.site.register(models.Title, TitleAdmin)
 admin.site.register(models.Discipline, DisciplineAdmin)
+admin.site.register(models.Map, MapAdmin)
 admin.site.register(models.Faction, FactionAdmin)
 admin.site.register(models.Hero, HeroAdmin)

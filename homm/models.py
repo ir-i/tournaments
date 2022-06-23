@@ -22,6 +22,16 @@ class Discipline (models.Model):
         return self.name
 
 
+class Map (models.Model):
+
+    name = models.CharField(max_length=512)
+    shortname = models.CharField(max_length=128)
+    discipline = models.ForeignKey(Discipline, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.name
+
+
 class Faction (models.Model):
 
     name_ru = models.CharField(max_length=128)
