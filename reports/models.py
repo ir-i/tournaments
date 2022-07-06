@@ -3,7 +3,7 @@ from django.db import models
 from django.core import validators
 from django.utils.translation import gettext_lazy as _
 
-from homm.models import Map
+from homm.models import Map, Faction, Hero
 from users.models import CustomUser
 
 
@@ -53,3 +53,38 @@ class TournamentPlayer (models.Model):
 
     class Meta:
         db_table = 'reports_tournament_players'
+
+
+
+class Match (models.Model):
+
+    min_techresult_validator = validators.MinValueValidator(0)
+    max_techresult_validator = validators.MaxValueValidator(2)
+
+    datetime_created = models.DateTimeField(_('Дата начала отчета'))
+    tournament = models.ForeignKey(Tournament, on_delete=models.PROTECT)
+    author = models.ForeignKey(CustomUser, on_delete=models.PROTECT)
+    player1 = models.ForeignKey(TournamentPlayer, on_delete=models.PROTECT, related_name='player1_set')
+    player2 = models.ForeignKey(TournamentPlayer, on_delete=models.PROTECT, related_name='player2_set')
+    techresult = models.SmallIntegerField(default=0, validators=[min_techresult_validator, max_techresult_validator])
+    is_commited = models.BooleanField(default=False)
+    is_confirmed = models.BooleanField(null=True)
+    datetime_commited = models.DateTimeField(_('Дата завершения отчета'), null=True)
+    datetime_confirmed = models.DateTimeField(_('Дата подтверждения/отклонения отчета'), null=True)
+    player1_comment = models.TextField(max_length=5000, blank=True)
+    player2_comment = models.TextField(max_length=5000, blank=True)
+
+
+
+class Game (models.Model):
+
+    min_winner_validator = validators.MinValueValidator(1)
+    max_winner_validator = validators.MaxValueValidator(2)
+
+    datetime = models.DateTimeField(_('Дата добавления игры'))
+    match = models.ForeignKey(Match, on_delete=models.CASCADE)
+    faction1 = models.ForeignKey(Faction, null=True, on_delete=models.PROTECT, related_name='faction1_set')
+    faction2 = models.ForeignKey(Faction, null=True, on_delete=models.PROTECT, related_name='faction2_set')
+    hero1 = models.ForeignKey(Hero, null=True, on_delete=models.PROTECT, related_name='hero1_set')
+    hero2 = models.ForeignKey(Hero, null=True, on_delete=models.PROTECT, related_name='hero2_set')
+    winner = models.SmallIntegerField(validators=[min_winner_validator, max_winner_validator])
