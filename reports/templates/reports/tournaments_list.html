@@ -1,0 +1,15 @@
+
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+    <div class="tournaments">
+    {% for tournament in tournaments %}
+        <div class="tournament">
+        <p>{{ tournament.shortname_ru }}</p>
+        <p>{{ tournament.name_ru }}</p>
+        </div>
+    {% endfor %}
+    </div>
+
+{% endblock %}

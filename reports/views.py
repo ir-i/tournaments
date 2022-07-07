@@ -1,3 +1,10 @@
+
 from django.shortcuts import render
 
-# Create your views here.
+from .models import Tournament
+
+
+
+def tournaments_list(request):
+    tournaments = Tournament.objects.all()
+    return render(request, 'reports/tournaments_list.html', {'tournaments': tournaments})
