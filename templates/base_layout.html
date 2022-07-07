@@ -3,10 +3,10 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Homepage</title>
+        <title>Tournaments</title>
     </head>
     <body>
-        <h1>Homepage</h1>
+        <h1>Tournaments</h1>
         <nav>
             {% if user.is_authenticated %}
                 <p>Oh, hi {{ user.username }}</p>
@@ -15,7 +15,7 @@
                     <button type="submit">Logout</button>
                 </form>
             {% else %}
-                <li><a href="{% url 'users:login' %}">Login</a></li>
+                <p><a href="{% url 'users:login' %}">Login</a></p>
             {% endif %}
         </nav>
         {% block content %}
