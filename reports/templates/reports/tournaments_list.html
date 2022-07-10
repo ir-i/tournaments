@@ -8,6 +8,9 @@
         <div class="tournament">
         <p>{{ tournament.shortname_ru }}</p>
         <p>{{ tournament.name_ru }}</p>
+        <button type="button">
+            <a href="{% url 'reports:register' tournament.id %}">Зарегистрироваться</a>
+        </button>
         </div>
     {% endfor %}
     </div>
