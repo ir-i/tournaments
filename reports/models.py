@@ -31,6 +31,7 @@ class Tournament (models.Model):
         help_text=_('Ссылка на тему турнира на форуме.')
     )
     is_registration_opened = models.BooleanField(_('Регистрация открыта'), default=False)
+    has_started = models.BooleanField(_('Турнир стартовал'), default=False)
     is_closed = models.BooleanField(_('Турнир завершен'), default=False)
     players = models.ManyToManyField(CustomUser, through='TournamentPlayer', blank=True)
 
