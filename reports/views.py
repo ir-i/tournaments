@@ -30,8 +30,14 @@ def user_can_register(tournament, user):
 
 
 def tournaments_list(request):
+
     tournaments = Tournament.objects.all()
-    return render(request, 'reports/tournaments_list.html', {'tournaments': tournaments})
+
+    can_register = {}
+    for tournament in tournaments:
+        can_register[tournament.id] = user_can_register(tournament, request.user)
+
+    return render(request, 'reports/tournaments_list.html', {'tournaments': tournaments, 'can_register': can_register})
 
 
 

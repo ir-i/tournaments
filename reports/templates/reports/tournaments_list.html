@@ -1,6 +1,8 @@
 
 {% extends 'base_layout.html' %}
 
+{% load reports_extras %}
+
 {% block content %}
 
     <div class="tournaments">
@@ -8,9 +10,11 @@
         <div class="tournament">
         <p>{{ tournament.shortname_ru }}</p>
         <p>{{ tournament.name_ru }}</p>
-        <button type="button">
-            <a href="{% url 'reports:register' tournament.id %}">Зарегистрироваться</a>
-        </button>
+        {% if can_register|getkey:tournament.id == 0 %}
+            <button type="button">
+                <a href="{% url 'reports:register' tournament.id %}">Зарегистрироваться</a>
+            </button>
+        {% endif %}
         </div>
     {% endfor %}
     </div>
