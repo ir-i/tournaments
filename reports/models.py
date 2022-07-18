@@ -41,8 +41,8 @@ class Tournament (models.Model):
 
 class TournamentPlayer (models.Model):
 
-    tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
-    player = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    tournament = models.ForeignKey(Tournament, on_delete=models.PROTECT)
+    player = models.ForeignKey(CustomUser, on_delete=models.PROTECT)
     datetime_registered = models.DateTimeField(_('Дата регистрации на турнир'), auto_now_add=True)
     time_available = models.TextField(_('Возможное время игры'), max_length=2048)
 
@@ -53,6 +53,9 @@ class TournamentPlayer (models.Model):
 
     class Meta:
         db_table = 'reports_tournament_players'
+        constraints = [
+            models.UniqueConstraint(fields=['tournament', 'player'], name='unique_tournament_player')
+        ]
 
 
 

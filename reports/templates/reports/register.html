@@ -1,0 +1,15 @@
+
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+    <h3>Регистрация на турнир</h3>
+
+    <form action="{% url 'reports:register' tournament_id %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Зарегистрироваться">
+    </form>
+
+
+{% endblock %}

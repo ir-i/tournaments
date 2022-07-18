@@ -3,5 +3,5 @@ from django.shortcuts import render
 
 
 
-def homepage(request):
-    return render(request, 'homepage.html')
+def base_layout(request):
+    return render(request, 'base_layout.html')

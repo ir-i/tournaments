@@ -1,0 +1,40 @@
+[
+    {
+        "model": "reports.tournament",
+        "pk": 1,
+        "fields": {
+            "name_ru": "Летний Тактический турнир 2022",
+            "shortname_ru": "ЛТТ-2022",
+            "name_en": "Summer Tactics 2022",
+            "shortname_en": "ST-2022",
+            "year": 2022,
+            "is_official": true,
+            "is_private": false,
+            "forum_thread": "arst",
+            "is_registration_opened": true,
+            "is_closed": false,
+            "maps": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "reports.tournament",
+        "pk": 2,
+        "fields": {
+            "name_ru": "Осенний Тактический турнир 2022",
+            "shortname_ru": "ОТТ-2022",
+            "name_en": "Autumn Tactics 2022",
+            "shortname_en": "AT-2022",
+            "year": 2022,
+            "is_official": true,
+            "is_private": false,
+            "forum_thread": "arst",
+            "is_registration_opened": true,
+            "is_closed": false,
+            "maps": [
+                2
+            ]
+        }
+    }
+]
