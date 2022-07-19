@@ -58,12 +58,15 @@ def tournaments_list(request):
     tournaments = Tournament.objects.all()
 
     can_register = {}
-    for tournament in tournaments:
-        can_register[tournament.id] = user_can_register(tournament, request.user)
-
     can_unregister = {}
-    for tournament in tournaments:
-        can_unregister[tournament.id] = user_can_unregister(tournament, request.user)        
+
+    if request.user.is_authenticated:
+        for tournament in tournaments:
+            can_register[tournament.id] = user_can_register(tournament, request.user)
+
+        can_unregister = {}
+        for tournament in tournaments:
+            can_unregister[tournament.id] = user_can_unregister(tournament, request.user)        
 
     return render(request, 'reports/tournaments_list.html', {
         'tournaments': tournaments,
@@ -115,5 +118,4 @@ def unregister(request, tournament_id):
         tournament_player.delete()
         return redirect('/')
 
-    # return HttpResponse('Разрегаться?')
     return render(request, 'reports/unregister.html', {'tournament_id': tournament_id})
