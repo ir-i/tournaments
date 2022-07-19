@@ -1,6 +1,6 @@
 
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
 from .models import Tournament, TournamentPlayer
@@ -76,7 +76,7 @@ def tournaments_list(request):
 @login_required(login_url='/users/login/')
 def register(request, tournament_id):
 
-    tournament = Tournament.objects.get(id=tournament_id)
+    tournament = get_object_or_404(Tournament, id=tournament_id)
 
     can_register = user_can_register(tournament, request.user)
     if can_register == -1:
@@ -102,7 +102,7 @@ def register(request, tournament_id):
 @login_required(login_url='/users/login/')
 def unregister(request, tournament_id):
 
-    tournament = Tournament.objects.get(id=tournament_id)
+    tournament = get_object_or_404(Tournament, id=tournament_id)
 
     can_unregister = user_can_unregister(tournament, request.user)
     if can_unregister == -1:
