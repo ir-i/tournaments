@@ -15,6 +15,11 @@
                 <a href="{% url 'reports:register' tournament.id %}">Зарегистрироваться</a>
             </button>
         {% endif %}
+        {% if can_unregister|getkey:tournament.id == 0 %}
+            <button type="button">
+                <a href="{% url 'reports:unregister' tournament.id %}">Отменить регистрацию на турнир</a>
+            </button>
+        {% endif %}
         </div>
     {% endfor %}
     </div>
