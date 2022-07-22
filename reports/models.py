@@ -39,6 +39,30 @@ class Tournament (models.Model):
         return self.shortname_ru
 
 
+    @property
+    def allows_to_register(self):
+        if (not self.is_closed and not self.is_private and self.registration_is_opened):
+            return True
+        else:
+            return False
+
+
+    @property
+    def allows_to_unregister(self):
+        if (not self.is_closed and not self.is_private and not self.has_started and self.registration_is_opened):
+            return True
+        else:
+            return False
+
+
+    @property
+    def allows_to_report(self):
+        if (not self.is_closed and self.has_started):
+            return True
+        else:
+            return False
+
+
 
 class TournamentPlayer (models.Model):
 
