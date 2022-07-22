@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Match',
+            name='Report',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('datetime_created', models.DateTimeField(verbose_name='Дата начала отчета')),
@@ -43,7 +43,7 @@ class Migration(migrations.Migration):
                 ('faction2', models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, related_name='faction2_set', to='homm.faction')),
                 ('hero1', models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, related_name='hero1_set', to='homm.hero')),
                 ('hero2', models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, related_name='hero2_set', to='homm.hero')),
-                ('match', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='reports.match')),
+                ('report', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='reports.report')),
             ],
         ),
     ]

@@ -60,7 +60,7 @@ class TournamentPlayer (models.Model):
 
 
 
-class Match (models.Model):
+class Report (models.Model):
 
     min_techresult_validator = validators.MinValueValidator(0)
     max_techresult_validator = validators.MaxValueValidator(2)
@@ -86,7 +86,7 @@ class Game (models.Model):
     max_winner_validator = validators.MaxValueValidator(2)
 
     datetime = models.DateTimeField(_('Дата добавления игры'))
-    match = models.ForeignKey(Match, on_delete=models.CASCADE)
+    report = models.ForeignKey(Report, on_delete=models.CASCADE)
     faction1 = models.ForeignKey(Faction, null=True, on_delete=models.PROTECT, related_name='faction1_set')
     faction2 = models.ForeignKey(Faction, null=True, on_delete=models.PROTECT, related_name='faction2_set')
     hero1 = models.ForeignKey(Hero, null=True, on_delete=models.PROTECT, related_name='hero1_set')
