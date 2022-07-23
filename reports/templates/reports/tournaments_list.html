@@ -11,12 +11,12 @@
         <p>{{ tournament.shortname_ru }}</p>
         <p>{{ tournament.name_ru }}</p>
         {% if user.is_authenticated %}
-            {% if can_register|getkey:tournament.id == 0 %}
+            {% if tournament.allows_to_register and user_can_register|getkey:tournament.id %}
                 <button type="button">
                     <a href="{% url 'reports:register' tournament.id %}">Зарегистрироваться</a>
                 </button>
             {% endif %}
-            {% if can_unregister|getkey:tournament.id == 0 %}
+            {% if tournament.allows_to_unregister and user_can_unregister|getkey:tournament.id %}
                 <button type="button">
                     <a href="{% url 'reports:unregister' tournament.id %}">Отменить регистрацию на турнир</a>
                 </button>
