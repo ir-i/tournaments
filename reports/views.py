@@ -67,7 +67,7 @@ def register(request, tournament_id):
     else:
         form = Register()
 
-    return render(request, 'reports/register.html', {'form': form, 'tournament_id': tournament_id})
+    return render(request, 'reports/register.html', {'form': form, 'tournament': tournament})
 
 
 
@@ -86,4 +86,4 @@ def unregister(request, tournament_id):
         tournament_player.delete()
         return redirect('/')
 
-    return render(request, 'reports/unregister.html', {'tournament_id': tournament_id})
+    return render(request, 'reports/unregister.html', {'tournament': tournament})

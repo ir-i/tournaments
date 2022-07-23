@@ -5,7 +5,7 @@
 
     <h3>Отменить регистрацию на турнир?</h3>
 
-    <form action="{% url 'reports:unregister' tournament_id %}" method="post">
+    <form action="{% url 'reports:unregister' tournament.id %}" method="post">
         {% csrf_token %}
         <input type="submit" value="Да">
     </form>
