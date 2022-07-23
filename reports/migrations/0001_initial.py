@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 ('is_official', models.BooleanField(default=True, verbose_name='Официальный турнир')),
                 ('is_private', models.BooleanField(default=False, help_text='На этот турнир нет открытой регистрации.', verbose_name='Закрытый турнир')),
                 ('forum_thread', models.CharField(help_text='Ссылка на тему турнира на форуме.', max_length=51, verbose_name='Тема турнира')),
-                ('is_registration_opened', models.BooleanField(default=False, verbose_name='Регистрация открыта')),
+                ('registration_is_opened', models.BooleanField(default=False, verbose_name='Регистрация открыта')),
                 ('is_closed', models.BooleanField(default=False, verbose_name='Турнир завершен')),
                 ('maps', models.ManyToManyField(to='homm.map')),
             ],

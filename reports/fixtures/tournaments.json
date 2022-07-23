@@ -11,7 +11,7 @@
             "is_official": true,
             "is_private": false,
             "forum_thread": "arst",
-            "is_registration_opened": true,
+            "registration_is_opened": true,
             "is_closed": false,
             "maps": [
                 2
@@ -30,7 +30,7 @@
             "is_official": true,
             "is_private": false,
             "forum_thread": "arst",
-            "is_registration_opened": true,
+            "registration_is_opened": true,
             "is_closed": false,
             "maps": [
                 2
