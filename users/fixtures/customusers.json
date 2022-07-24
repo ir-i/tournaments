@@ -1,18 +1,66 @@
 [
-    {
-        "model": "users.customuser",
-        "pk": 1,
-        "fields": {
-            "password": "pbkdf2_sha256$320000$t54YBd2BpHMynFcSxWtBsY$kbnFz3L2cTYJ6DJJyY6mZogtWORj8d5PxhDtpRNztFU=",
-            "last_login": "2022-07-14T18:51:39.376Z",
-            "is_superuser": true,
-            "username": "admin",
-            "email": "admin@example.com",
-            "date_joined": "2022-07-14T18:51:24.745Z",
-            "is_active": true,
-            "is_staff": true,
-            "groups": [],
-            "user_permissions": []
-        }
+  {
+    "model": "users.customuser",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$t54YBd2BpHMynFcSxWtBsY$kbnFz3L2cTYJ6DJJyY6mZogtWORj8d5PxhDtpRNztFU=",
+      "last_login": "2022-07-23T12:11:35.628Z",
+      "is_superuser": true,
+      "username": "admin",
+      "email": "admin@example.com",
+      "date_joined": "2022-07-14T18:51:24.745Z",
+      "is_active": true,
+      "is_staff": true,
+      "groups": [],
+      "user_permissions": []
     }
+  },
+  {
+    "model": "users.customuser",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$9etuOHdzZbwXcG86aiy9Mq$XfRzxKhs0VUrFG2zLJwMsWpCS4iTkuCeQ4HjmDyj80M=",
+      "last_login": "2022-07-23T12:10:37.013Z",
+      "is_superuser": false,
+      "username": "Mark",
+      "email": "mark@example.com",
+      "date_joined": "2022-07-23T12:09:05.394Z",
+      "is_active": true,
+      "is_staff": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.customuser",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$QFykZ14UvKHEdhAlJEzESL$9JGV+sfLPtWPsqCmwF491K+gQF9c08UebCTVR5dthsc=",
+      "last_login": "2022-07-23T12:10:11.642Z",
+      "is_superuser": false,
+      "username": "memladris",
+      "email": "memladris@example.com",
+      "date_joined": "2022-07-23T12:09:38.020Z",
+      "is_active": true,
+      "is_staff": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.customuser",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$hSZ4Jbvvwa5RNgwXzS0e2K$IcF2E1fMvuTaiz/5KfN2dEYD1Pkv+WPOfhaj7ia9n+8=",
+      "last_login": "2022-07-23T12:11:00.972Z",
+      "is_superuser": false,
+      "username": "Tantal",
+      "email": "tantal@example.com",
+      "date_joined": "2022-07-23T12:09:56.129Z",
+      "is_active": true,
+      "is_staff": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  }
 ]
