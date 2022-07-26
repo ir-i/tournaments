@@ -76,6 +76,11 @@ class TournamentPlayer (models.Model):
     # ban_duration = models.IntegerField(_('На сколько сезонов забанен игрок'), default=0)
     # comment = models.TextField(_('Комментарий'), max_length=5000, help_text=_('Например, причина снятия/бана.'), blank=True)
 
+
+    def __str__(self):
+        return self.player.username
+
+
     class Meta:
         db_table = 'reports_tournament_players'
         constraints = [
