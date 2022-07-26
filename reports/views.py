@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
-from .models import Tournament, TournamentPlayer
+from .models import Tournament, TournamentPlayer, Report
 from .forms import Register
 
 
@@ -106,3 +106,21 @@ def reports_list(request, tournament_id):
         'user_can_report': user_can_report,
         'reports_list': reports_list
     })
+
+
+
+@login_required(login_url='/users/login/')
+def report(request, tournament_id):
+
+    tournament = get_object_or_404(Tournament, id=tournament_id)
+
+    if not tournament.allows_to_report:
+        return HttpResponse('Нельзя оставить отчет об игре на этом турнире.')
+    elif not user_is_registered(tournament, request.user):
+        return HttpResponse('Вы не зарегистрированы на этот турнир.')
+
+    if request.method == 'POST':
+        # проверить, что полученный оппонент зарегистрирован на турнир
+        pass
+
+    return render(request, 'reports/report.html', {'tournament': tournament})
