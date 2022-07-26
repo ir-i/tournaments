@@ -87,3 +87,22 @@ def unregister(request, tournament_id):
         return redirect('/')
 
     return render(request, 'reports/unregister.html', {'tournament': tournament})
+
+
+
+def reports_list(request, tournament_id):
+
+    tournament = get_object_or_404(Tournament, id=tournament_id)
+
+    if request.user.is_authenticated:
+        user_can_report = user_is_registered(tournament, request.user)
+    else:
+        user_can_report = False
+
+    reports_list = Report.objects.filter(tournament_id=tournament.id)
+
+    return render(request, 'reports/reports_list.html', {
+        'tournament': tournament,
+        'user_can_report': user_can_report,
+        'reports_list': reports_list
+    })
