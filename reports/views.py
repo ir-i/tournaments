@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
 from .models import Tournament, TournamentPlayer, Report
-from .forms import Register
+from .forms import Register, ReportForm, GameForm
 
 
 
@@ -82,7 +82,7 @@ def unregister(request, tournament_id):
         return HttpResponse('Вы не зарегистрированы на этот турнир.')
 
     if request.method == 'POST':
-        tournament_player = TournamentPlayer.objects.get(tournament_id=tournament_id, player_id=request.user.id)
+        tournament_player = TournamentPlayer.objects.get(tournament=tournament, player=request.user)
         tournament_player.delete()
         return redirect('/')
 
@@ -99,9 +99,9 @@ def reports_list(request, tournament_id):
     else:
         user_can_report = False
 
-    reports_list = Report.objects.filter(tournament_id=tournament.id)
+    reports_list = Report.objects.filter(tournament=tournament).order_by('-datetime_created')
 
-    return render(request, 'reports/reports_list.html', {
+    return render(request, 'reports/tournament.html', {
         'tournament': tournament,
         'user_can_report': user_can_report,
         'reports_list': reports_list
@@ -119,8 +119,30 @@ def report(request, tournament_id):
     elif not user_is_registered(tournament, request.user):
         return HttpResponse('Вы не зарегистрированы на этот турнир.')
 
+    print('1')
+
     if request.method == 'POST':
         # проверить, что полученный оппонент зарегистрирован на турнир
-        pass
+        report_form = ReportForm(tournament, request.user, request.POST)
+        game_form = GameForm(request.POST)
+        if (report_form.is_valid() and game_form.is_valid()):
+            report = report_form.save(commit=False)
+            report.author = request.user
+            report.tournament = tournament
+            report.player1 = tournament.tournamentplayer_set.get(player=request.user)
+            report.save()
+            game = game_form.save(commit=False)
+            game.report = report
+            game.save()
+            return redirect('/reports/' + str(tournament.id) + '/reports-list')
+    
+    else:
+        print('GET')
+        report_form = ReportForm(tournament, request.user)
+        game_form = GameForm()
 
-    return render(request, 'reports/report.html', {'tournament': tournament})
+    return render(request, 'reports/report.html', {
+        'tournament': tournament,
+        'report_form': report_form,
+        'game_form': game_form,
+    })
