@@ -9,7 +9,12 @@
         {% csrf_token %}
         {{ report_form }}
         <br>
-        {{ game_form }}
+        {{ game_formset.non_form_errors }}
+        {{ game_formset.management_form }}
+        {% for form in game_formset %}
+            {{ form }}
+            <br>
+        {% endfor %}
         <input type="submit" value="Завершить отчет">
     </form>
 

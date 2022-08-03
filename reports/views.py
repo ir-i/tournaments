@@ -2,8 +2,9 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.forms import modelformset_factory
 
-from .models import Tournament, TournamentPlayer, Report
+from .models import Tournament, TournamentPlayer, Report, Game
 from .forms import Register, ReportForm, GameForm
 
 
@@ -114,35 +115,37 @@ def report(request, tournament_id):
 
     tournament = get_object_or_404(Tournament, id=tournament_id)
 
+    GameFormSet = modelformset_factory(Game, form=GameForm, extra=7)
+
     if not tournament.allows_to_report:
         return HttpResponse('Нельзя оставить отчет об игре на этом турнире.')
     elif not user_is_registered(tournament, request.user):
         return HttpResponse('Вы не зарегистрированы на этот турнир.')
 
-    print('1')
-
     if request.method == 'POST':
+        print('--- POST ---')
         # проверить, что полученный оппонент зарегистрирован на турнир
         report_form = ReportForm(tournament, request.user, request.POST)
-        game_form = GameForm(request.POST)
-        if (report_form.is_valid() and game_form.is_valid()):
+        game_formset = GameFormSet(request.POST)
+        if (report_form.is_valid() and game_formset.is_valid()):
+            print('--- is valid ---')
             report = report_form.save(commit=False)
             report.author = request.user
             report.tournament = tournament
             report.player1 = tournament.tournamentplayer_set.get(player=request.user)
             report.save()
-            game = game_form.save(commit=False)
-            game.report = report
-            game.save()
+            games = game_formset.save(commit=False)
+            for game in games:
+                game.report = report
+                game.save()
             return redirect('/reports/' + str(tournament.id) + '/reports-list')
     
     else:
-        print('GET')
         report_form = ReportForm(tournament, request.user)
-        game_form = GameForm()
+        game_formset = GameFormSet(queryset=Game.objects.none())
 
     return render(request, 'reports/report.html', {
         'tournament': tournament,
         'report_form': report_form,
-        'game_form': game_form,
+        'game_formset': game_formset,
     })
