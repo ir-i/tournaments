@@ -116,8 +116,8 @@ class Game (models.Model):
 
     datetime = models.DateTimeField(_('Дата добавления игры'), auto_now_add=True)
     report = models.ForeignKey(Report, on_delete=models.CASCADE)
-    faction1 = models.ForeignKey(Faction, null=True, on_delete=models.PROTECT, related_name='faction1_set')
-    faction2 = models.ForeignKey(Faction, null=True, on_delete=models.PROTECT, related_name='faction2_set')
-    hero1 = models.ForeignKey(Hero, null=True, on_delete=models.PROTECT, related_name='hero1_set')
-    hero2 = models.ForeignKey(Hero, null=True, on_delete=models.PROTECT, related_name='hero2_set')
+    faction1 = models.ForeignKey(Faction, null=True, blank=True, on_delete=models.PROTECT, related_name='faction1_set')
+    faction2 = models.ForeignKey(Faction, null=True, blank=True, on_delete=models.PROTECT, related_name='faction2_set')
+    hero1 = models.ForeignKey(Hero, null=True, blank=True, on_delete=models.PROTECT, related_name='hero1_set')
+    hero2 = models.ForeignKey(Hero, null=True, blank=True, on_delete=models.PROTECT, related_name='hero2_set')
     winner = models.SmallIntegerField(validators=[min_winner_validator, max_winner_validator])
