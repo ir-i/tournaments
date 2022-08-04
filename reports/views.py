@@ -123,16 +123,15 @@ def report(request, tournament_id):
         return HttpResponse('Вы не зарегистрированы на этот турнир.')
 
     if request.method == 'POST':
-        print('--- POST ---')
         # проверить, что полученный оппонент зарегистрирован на турнир
         report_form = ReportForm(tournament, request.user, request.POST)
         game_formset = GameFormSet(request.POST)
         if (report_form.is_valid() and game_formset.is_valid()):
-            print('--- is valid ---')
             report = report_form.save(commit=False)
             report.author = request.user
             report.tournament = tournament
             report.player1 = tournament.tournamentplayer_set.get(player=request.user)
+            report.is_commited = True   # в прекрасном будущем пользователь сможет составлять черновик отчета, и пока он его не подтвердит, is_commited будет False (значение по умолчанию); а пока что принудительно ставится True
             report.save()
             games = game_formset.save(commit=False)
             for game in games:
