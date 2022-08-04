@@ -28,6 +28,18 @@ class ReportForm (forms.ModelForm):
 
 class GameForm (forms.ModelForm):
 
+    WINNERS = (
+        ('', '---------'),
+        (1, 'Вы'),
+        (2, 'Оппонент'),
+    )
+
+    winner = forms.ChoiceField(widget=forms.Select, choices=WINNERS)
+
     class Meta:
         model = Game
-        fields = ['faction1', 'hero1', 'faction2', 'hero2', 'winner']
+        fields = ['faction1', 'hero1', 'faction2', 'hero2']
+
+    def clean(self):
+        super().clean()
+        self.instance.winner = self.cleaned_data['winner']
