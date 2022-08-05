@@ -116,6 +116,7 @@ class Game (models.Model):
 
     datetime = models.DateTimeField(_('Дата добавления игры'), auto_now_add=True)
     report = models.ForeignKey(Report, on_delete=models.CASCADE)
+    map = models.ForeignKey(Map, on_delete=models.PROTECT)
     faction1 = models.ForeignKey(Faction, null=True, blank=True, on_delete=models.PROTECT, related_name='faction1_set')
     faction2 = models.ForeignKey(Faction, null=True, blank=True, on_delete=models.PROTECT, related_name='faction2_set')
     hero1 = models.ForeignKey(Hero, null=True, blank=True, on_delete=models.PROTECT, related_name='hero1_set')

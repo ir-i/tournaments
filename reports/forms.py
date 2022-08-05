@@ -43,3 +43,15 @@ class GameForm (forms.ModelForm):
     def clean(self):
         super().clean()
         self.instance.winner = self.cleaned_data['winner']
+
+
+
+class GameWithMapForm (GameForm):
+
+    def __init__(self, tournament, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['map'].queryset = tournament.maps.all()
+
+
+    class Meta(GameForm.Meta):
+        fields = ['map'] + GameForm.Meta.fields

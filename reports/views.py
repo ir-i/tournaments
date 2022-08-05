@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.forms import modelformset_factory
 
 from .models import Tournament, TournamentPlayer, Report, Game
-from .forms import Register, ReportForm, GameForm
+from .forms import Register, ReportForm, GameForm, GameWithMapForm
 
 
 
@@ -115,7 +115,15 @@ def report(request, tournament_id):
 
     tournament = get_object_or_404(Tournament, id=tournament_id)
 
-    GameFormSet = modelformset_factory(Game, form=GameForm, extra=7)
+    if (tournament.maps.count() > 1):
+        has_multiple_maps = True
+    else:
+        has_multiple_maps = False
+
+    if (has_multiple_maps):
+        GameFormSet = modelformset_factory(Game, form=GameWithMapForm, extra=7)
+    else:
+        GameFormSet = modelformset_factory(Game, form=GameForm, extra=7)
 
     if not tournament.allows_to_report:
         return HttpResponse('Нельзя оставить отчет об игре на этом турнире.')
@@ -136,12 +144,17 @@ def report(request, tournament_id):
             games = game_formset.save(commit=False)
             for game in games:
                 game.report = report
+                if(not has_multiple_maps):
+                    game.map = tournament.maps.all()[0]
                 game.save()
             return redirect('/reports/' + str(tournament.id) + '/reports-list')
     
     else:
         report_form = ReportForm(tournament, request.user)
-        game_formset = GameFormSet(queryset=Game.objects.none())
+        if (has_multiple_maps):
+            game_formset = GameFormSet(queryset=Game.objects.none(), form_kwargs={'tournament': tournament})
+        else:
+            game_formset = GameFormSet(queryset=Game.objects.none())
 
     return render(request, 'reports/report.html', {
         'tournament': tournament,
