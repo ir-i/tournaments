@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.forms import modelformset_factory
 
 from .models import Tournament, TournamentPlayer, Report, Game
-from .forms import Register, ReportForm, GameForm, GameWithMapForm
+from .forms import ConfirmReportForm, Register, ReportForm, GameForm, GameWithMapForm
 
 
 
@@ -161,3 +161,48 @@ def report(request, tournament_id):
         'report_form': report_form,
         'game_formset': game_formset,
     })
+
+
+
+@login_required(login_url='/users/login/')
+def confirm_report(request, report_id):
+
+    report = get_object_or_404(Report, id=report_id)
+
+    if not report.player2.player == request.user or not report.is_confirmed == None:
+        return HttpResponse('Вы не можете подтвердить или отклонить этот отчет.')
+
+    if request.method == 'POST':
+        form = ConfirmReportForm(request.POST, instance=report)
+        if form.is_valid():
+            report = form.save(commit=False)
+            report.is_confirmed = True
+            report.save()
+            return redirect('/reports/' + str(report.tournament.id))
+
+
+    form = ConfirmReportForm(instance=report)
+
+    return render(request, 'reports/confirm-report.html', {'report': report, 'form': form})
+
+
+
+@login_required(login_url='/users/login/')
+def decline_report(request, report_id):
+
+    report = get_object_or_404(Report, id=report_id)
+
+    if not report.player2.player == request.user or not report.is_confirmed == None:
+        return HttpResponse('Вы не можете подтвердить или отклонить этот отчет.')
+
+    if request.method == 'POST':
+        form = ConfirmReportForm(request.POST, instance=report)
+        if form.is_valid():
+            report = form.save(commit=False)
+            report.is_confirmed = False
+            report.save()
+            return redirect('/reports/' + str(report.tournament.id))
+
+    form = ConfirmReportForm(instance=report)
+
+    return render(request, 'reports/confirm-report.html', {'report': report, 'form': form})

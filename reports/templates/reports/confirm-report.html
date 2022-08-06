@@ -1,0 +1,29 @@
+
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+    <h3>Подтверждение отчета</h3>
+
+    {{ report.player1 }}
+    {% for game in report.game_set.all %}
+        <p>
+            {{ game.faction1 }}, {{ game.hero1 }}
+            {% if game.winner == 1 %}
+                &gt;
+            {% else %}
+                &lt;
+            {% endif %}
+            {{ game.faction2 }}, {{ game.hero2 }}
+        </p>
+    {% endfor %}
+    {{ report.player1_comment }}
+
+    <form action="{% url 'reports:confirm-report' report.id %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Подтвердить">
+        <input type="submit" formaction="{% url 'reports:decline-report' report.id %}" value="Отклонить">
+    </form>
+
+{% endblock %}

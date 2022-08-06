@@ -55,3 +55,11 @@ class GameWithMapForm (GameForm):
 
     class Meta(GameForm.Meta):
         fields = ['map'] + GameForm.Meta.fields
+
+
+
+class ConfirmReportForm (forms.ModelForm):
+
+    class Meta:
+        model = Report
+        fields = ['player2_comment']
