@@ -1,0 +1,26 @@
+
+{% extends 'reports/tournament.html' %}
+
+{% block tournament %}
+
+    <div class="players-list">
+
+        {% if user.is_authenticated %}
+            {% if tournament.allows_to_register and user_can_register %}
+                <a href="{% url 'reports:register' tournament.id %}">Зарегистрироваться</a>
+            {% endif %}
+        {% endif %}
+        
+        {% if user.is_authenticated %}
+            {% if tournament.allows_to_unregister and user_can_unregister %}
+                <a href="{% url 'reports:unregister' tournament.id %}">Отменить регистрацию</a>
+            {% endif %}
+        {% endif %}
+
+        {% for player in players_list %}
+            <p>{{ player }}</p>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

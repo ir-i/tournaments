@@ -9,6 +9,6 @@
         {% csrf_token %}
         <input type="submit" value="Да">
     </form>
-    <a href="{% url 'home' %}"><input type="button" value="Нет"></a>
+    <a href="{% url 'reports:players-list' tournament.id %}"><input type="button" value="Нет"></a>
 
 {% endblock %}
