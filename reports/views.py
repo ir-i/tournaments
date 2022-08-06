@@ -131,7 +131,7 @@ def report(request, tournament_id):
         return HttpResponse('Вы не зарегистрированы на этот турнир.')
 
     if request.method == 'POST':
-        # проверить, что полученный оппонент зарегистрирован на турнир
+        # проверить, что полученный оппонент зарегистрирован на турнире
         report_form = ReportForm(tournament, request.user, request.POST)
         game_formset = GameFormSet(request.POST)
         if (report_form.is_valid() and game_formset.is_valid()):
@@ -147,7 +147,7 @@ def report(request, tournament_id):
                 if(not has_multiple_maps):
                     game.map = tournament.maps.all()[0]
                 game.save()
-            return redirect('/reports/' + str(tournament.id) + '/reports-list')
+            return redirect('/reports/' + str(tournament.id))
     
     else:
         report_form = ReportForm(tournament, request.user)
