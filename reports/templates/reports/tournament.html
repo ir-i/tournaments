@@ -7,7 +7,7 @@
 
         <h2>{{ tournament.shortname_ru }}</h2>
 
-        <a href="{% url 'reports:reports_list' tournament.id %}">Отчеты</a>
+        <a href="{% url 'reports:reports-list' tournament.id %}">Отчеты</a>
         <a href="{% url 'reports:players-list' tournament.id %}">Участники</a>
 
         {% block tournament %}

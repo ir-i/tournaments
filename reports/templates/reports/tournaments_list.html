@@ -8,7 +8,7 @@
     <div class="tournaments">
     {% for tournament in tournaments %}
         <div class="tournament">
-        <p><a href="{% url 'reports:reports_list' tournament.id %}">{{ tournament.shortname_ru }}</a></p>
+        <p><a href="{% url 'reports:reports-list' tournament.id %}">{{ tournament.shortname_ru }}</a></p>
         <p>{{ tournament.name_ru }}</p>
         {% if user.is_authenticated %}
             {% if tournament.allows_to_register and user_can_register|getkey:tournament.id %}
