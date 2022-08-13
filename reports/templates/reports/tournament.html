@@ -3,7 +3,7 @@
 
 {% block content %}
 
-    <div class="reports-list">
+    <div class="tournament">
 
         <h2>{{ tournament.shortname_ru }}</h2>
 
@@ -27,7 +27,7 @@
             <div class="tab-pane fade show active p-3" id="nav-reports" role="tabpanel" aria-labelledby="nav-reports-tab">
                 {% if user.is_authenticated %}
                     {% if tournament.allows_to_report and user_can_report %}
-                        <a href="{% url 'reports:report' tournament.id %}">Создать отчет</a>
+                        <a href="{% url 'reports:add-report' tournament.id %}">Создать отчет</a>
                     {% endif %}
                 {% endif %}
                 {% for report in reports_list %}

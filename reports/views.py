@@ -119,7 +119,7 @@ def unregister(request, tournament_id):
 
 
 @login_required(login_url='/users/login/')
-def report(request, tournament_id):
+def add_report(request, tournament_id):
 
     tournament = get_object_or_404(Tournament, id=tournament_id)
 
@@ -164,7 +164,7 @@ def report(request, tournament_id):
         else:
             game_formset = GameFormSet(queryset=Game.objects.none())
 
-    return render(request, 'reports/report.html', {
+    return render(request, 'reports/add-report.html', {
         'tournament': tournament,
         'report_form': report_form,
         'game_formset': game_formset,

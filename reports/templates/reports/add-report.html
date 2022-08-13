@@ -5,7 +5,7 @@
 
     <h3>Добавление отчета</h3>
 
-    <form action="{% url 'reports:report' tournament.id %}" method="post">
+    <form action="{% url 'reports:add-report' tournament.id %}" method="post">
         {% csrf_token %}
         {{ report_form }}
         <br>
