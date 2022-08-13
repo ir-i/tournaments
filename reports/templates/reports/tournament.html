@@ -7,10 +7,79 @@
 
         <h2>{{ tournament.shortname_ru }}</h2>
 
-        <a href="{% url 'reports:reports-list' tournament.id %}">Отчеты</a>
-        <a href="{% url 'reports:players-list' tournament.id %}">Участники</a>
+        <div class="container my-5">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-reports-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-reports" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+                        Отчеты
+                    </button>
+                    <button class="nav-link" id="nav-players-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-players" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+                        Участники
+                    </button>
+                </div>
+            </nav>
+        </div>
 
-        {% block tournament %}
-        {% endblock %}
+        <div class="tab-content" id="nav-tab-content">
+
+            <div class="tab-pane fade show active p-3" id="nav-reports" role="tabpanel" aria-labelledby="nav-reports-tab">
+                {% if user.is_authenticated %}
+                    {% if tournament.allows_to_report and user_can_report %}
+                        <a href="{% url 'reports:report' tournament.id %}">Создать отчет</a>
+                    {% endif %}
+                {% endif %}
+                {% for report in reports_list %}
+                    <div class="report">
+                        <br>
+                        <p><b>{{ report.player1 }} — {{ report.player2 }}</b></p>
+                        <p>{{ report.datetime_created }}</p>
+                        {% for game in report.game_set.all %}
+                            <p>
+                                {{ game.faction1 }}, {{ game.hero1 }}
+                                {% if game.winner == 1 %}
+                                    &gt;
+                                {% else %}
+                                    &lt;
+                                {% endif %}
+                                {{ game.faction2 }}, {{ game.hero2 }}
+                            </p>
+                        {% endfor %}
+                        <p>Автор отчета: {{ report.author }}</p>
+                        <p>Отчет завершен: {{ report.is_commited }}</p>
+                        <p>Отчет подтвержден: {{ report.is_confirmed }}</p>
+                        {% if report.is_confirmed == None and request.user == report.player2.player %}
+                            <button type="button">
+                                <a href="{% url 'reports:confirm-report' report.id %}">Подтвердить/отклонить отчет</a>
+                            </button>
+                        {% endif %}
+                        <p>Комментарий {{report.player1}}: {{ report.player1_comment }}</p>
+                        <p>Комментарий {{report.player2}}: {{ report.player2_comment }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="tab-pane fade show p-3" id="nav-players" role="tabpanel" aria-labelledby="nav-players-tab">
+
+                {% if user.is_authenticated %}
+                    {% if tournament.allows_to_register and user_can_register %}
+                        <a href="{% url 'reports:register' tournament.id %}">Зарегистрироваться</a>
+                    {% endif %}
+                {% endif %}
+                
+                {% if user.is_authenticated %}
+                    {% if tournament.allows_to_unregister and user_can_unregister %}
+                        <a href="{% url 'reports:unregister' tournament.id %}">Отменить регистрацию</a>
+                    {% endif %}
+                {% endif %}
+        
+                {% for player in players_list %}
+                    <p>{{ player }}</p>
+                {% endfor %}
+
+            </div>
+
+        </div>
 
 {% endblock %}

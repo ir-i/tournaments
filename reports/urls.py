@@ -9,8 +9,7 @@ app_name = 'reports'
 
 urlpatterns = [
     path('', views.tournaments_list, name='tournaments'),
-    path('<int:tournament_id>/', views.reports_list, name='reports-list'),
-    path('<int:tournament_id>/players', views.players_list, name='players-list'),
+    path('<int:tournament_id>/', views.tournament, name='tournament'),
     path('<int:tournament_id>/register/', views.register, name='register'),
     path('<int:tournament_id>/unregister/', views.unregister, name='unregister'),
     path('<int:tournament_id>/report/', views.report, name='report'),

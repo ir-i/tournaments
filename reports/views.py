@@ -46,45 +46,28 @@ def tournaments_list(request):
 
 
 
-def reports_list(request, tournament_id):
+def tournament(request, tournament_id):
 
     tournament = get_object_or_404(Tournament, id=tournament_id)
 
     if request.user.is_authenticated:
         user_can_report = user_is_registered(tournament, request.user)
-    else:
-        user_can_report = False
-
-    reports_list = Report.objects.filter(tournament=tournament).order_by('-datetime_created')
-
-    return render(request, 'reports/reports-list.html', {
-        'tournament': tournament,
-        'user_can_report': user_can_report,
-        'reports_list': reports_list
-    })
-
-
-
-def players_list(request, tournament_id):
-
-    tournament = get_object_or_404(Tournament, id=tournament_id)
-
-    if request.user.is_authenticated:
         user_can_register = not user_is_registered(tournament, request.user)
-    else:
-        user_can_register = False
-
-    if request.user.is_authenticated:
         user_can_unregister = user_is_registered(tournament, request.user)
     else:
+        user_can_report = False
+        user_can_register = False
         user_can_unregister = False
 
+    reports_list = Report.objects.filter(tournament=tournament).order_by('-datetime_created')
     players_list = tournament.players.all()
 
-    return render(request, 'reports/players-list.html', {
+    return render(request, 'reports/tournament.html', {
         'tournament': tournament,
+        'user_can_report': user_can_report,
         'user_can_register': user_can_register,
         'user_can_unregister': user_can_unregister,
+        'reports_list': reports_list,
         'players_list': players_list
     })
 
@@ -108,7 +91,7 @@ def register(request, tournament_id):
             instance.player = request.user
 
             instance.save()
-            return redirect('/reports/' + str(tournament.id) + '/players')
+            return redirect('/reports/' + str(tournament.id))
     else:
         form = Register()
 
@@ -129,7 +112,7 @@ def unregister(request, tournament_id):
     if request.method == 'POST':
         tournament_player = TournamentPlayer.objects.get(tournament=tournament, player=request.user)
         tournament_player.delete()
-        return redirect('/reports/' + str(tournament.id) + '/players')
+        return redirect('/reports/' + str(tournament.id))
 
     return render(request, 'reports/unregister.html', {'tournament': tournament})
 
