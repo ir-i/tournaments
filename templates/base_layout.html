@@ -1,25 +1,31 @@
 
+{% load static %}
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Tournaments</title>
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     </head>
     <body>
-        <h1>Tournaments</h1>
-        <nav>
-            {% if user.is_authenticated %}
-                <p>Oh, hi {{ user.username }}</p>
-                <form action="{% url 'users:logout' %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit">Logout</button>
-                </form>
-            {% else %}
-                <p><a href="{% url 'users:login' %}">Login</a></p>
-            {% endif %}
-        </nav>
-        <hr>
-        {% block content %}
-        {% endblock %}
+        <div class="container-lg my-5">
+            <h1>Tournaments</h1>
+            <nav>
+                {% if user.is_authenticated %}
+                    <p class="lead">Oh, hi {{ user.username }}</p>
+                    <form action="{% url 'users:logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary">Logout</button>
+                    </form>
+                {% else %}
+                    <p><a href="{% url 'users:login' %}">Login</a></p>
+                {% endif %}
+            </nav>
+            <hr>
+            {% block content %}
+            {% endblock %}
+        </div>
     </body>
 </html>
