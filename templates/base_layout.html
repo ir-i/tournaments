@@ -5,30 +5,36 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Tournaments</title>
+        <title>Heroes League</title>
         <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
         <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     </head>
     <body>
-        <div class="container-lg bg-light">
-            <h1 class="pt-5 ps-5">Tournaments</h1>
-            <nav>
-                <div class="d-flex ps-5 pt-3 pb-3">
-                    {% if user.is_authenticated %}
-                        <p class="lead pe-3">Oh, hi {{ user.username }}</p>
-                        <form action="{% url 'users:logout' %}" method="post">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-primary">Logout</button>
-                        </form>
-                    {% else %}
-                        <p><a href="{% url 'users:login' %}">Login</a></p>
-                    {% endif %}
-                </div>
-            </nav>
-        </div>
-        <div class="container-lg p-5">
-            {% block content %}
-            {% endblock %}
+        <div class="wrap container-lg">
+            <div class="container-lg">
+                <!-- <a href="/" class="logo" title="Heroes League"> -->
+                    <span class="logo"></span>
+                <!-- </a> -->
+                <h1 class="header">Heroes League</h1>
+                <nav>
+                    <div class="d-flex pt-2 pb-3">
+                        {% if user.is_authenticated %}
+                            <p class="lead pe-3">Oh, hi {{ user.username }}</p>
+                            <form action="{% url 'users:logout' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-sm btn-primary">Logout</button>
+                            </form>
+                        {% else %}
+                            <p><a href="{% url 'users:login' %}">Login</a></p>
+                        {% endif %}
+                    </div>
+                </nav>
+            </div>
+            <div class="container-lg p-5 bg-light">
+                {% block content %}
+                {% endblock %}
+            </div>
         </div>
     </body>
 </html>

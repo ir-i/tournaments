@@ -1,0 +1,44 @@
+
+body {
+    padding: 150px 0 0 0;
+    background-image: url(/static/img/background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% auto;
+}
+
+@media (min-width: 701px) and (max-aspect-ratio: 1634/910) {
+	body {
+		background-size: auto 100%;
+		/* background-position: center; */
+	}
+}
+
+.wrap {
+	background-color: #fffc;
+	padding: 25px;
+	max-width: 1300px;
+}
+
+@font-face {
+	font-family: "OldOakAP";
+	src: local("OldOakAP"), url("../fonts/OldOakAP.ttf") format("truetype");
+}
+
+a.logo {
+	width: auto;
+}
+
+span.logo {
+	background-image: url(/static/img/site_logo.png);
+	width: 86px;
+	height: 78px;
+}
+
+h1.header {
+	font-family: OldOakAP, "Trebuchet MS", Arial, Helvetica, sans-serif;
+	letter-spacing: 1.5px;
+	/* font-size: 3.5em; */
+	margin-top: 12px;
+	font-weight: bold;
+}
