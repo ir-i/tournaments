@@ -128,10 +128,15 @@ def add_report(request, tournament_id):
     else:
         has_multiple_maps = False
 
-    if (has_multiple_maps):
-        GameFormSet = modelformset_factory(Game, form=GameWithMapForm, extra=7)
+    if request.method == 'POST':
+        extra = request.POST['form-TOTAL_FORMS']
     else:
-        GameFormSet = modelformset_factory(Game, form=GameForm, extra=7)
+        extra = 1
+
+    if (has_multiple_maps):
+        GameFormSet = modelformset_factory(Game, form=GameWithMapForm, extra=extra)
+    else:
+        GameFormSet = modelformset_factory(Game, form=GameForm, extra=extra)
 
     if not tournament.allows_to_report:
         return HttpResponse('Нельзя оставить отчет об игре на этом турнире.')
@@ -142,6 +147,7 @@ def add_report(request, tournament_id):
         # проверить, что полученный оппонент зарегистрирован на турнире
         report_form = ReportForm(tournament, request.user, request.POST)
         game_formset = GameFormSet(request.POST)
+        print(game_formset.extra)
         if (report_form.is_valid() and game_formset.is_valid()):
             report = report_form.save(commit=False)
             report.author = request.user
@@ -149,8 +155,13 @@ def add_report(request, tournament_id):
             report.player1 = tournament.tournamentplayer_set.get(player=request.user)
             report.is_commited = True   # в прекрасном будущем пользователь сможет составлять черновик отчета, и пока он его не подтвердит, is_commited будет False (значение по умолчанию); а пока что принудительно ставится True
             report.save()
+            print(game_formset.errors)
             games = game_formset.save(commit=False)
+            print(game_formset.errors)
+            print(games)
             for game in games:
+                print('---!!!---')
+                print(game)
                 game.report = report
                 if(not has_multiple_maps):
                     game.map = tournament.maps.all()[0]

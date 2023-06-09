@@ -1,5 +1,7 @@
 
 from django import forms
+from django.utils.translation import gettext_lazy as _
+from django.core.exceptions import ValidationError
 
 from .models import TournamentPlayer, Report, Game
 
@@ -29,7 +31,7 @@ class ReportForm (forms.ModelForm):
 class GameForm (forms.ModelForm):
 
     WINNERS = (
-        ('', '---------'),
+        (-1, '---------'),
         (1, 'Вы'),
         (2, 'Оппонент'),
     )
@@ -42,6 +44,11 @@ class GameForm (forms.ModelForm):
 
     def clean(self):
         super().clean()
+        if self.cleaned_data['winner'] == '-1':
+            raise ValidationError(
+                _('Укажите победителя игры'),
+                code='no_winner'
+            )
         self.instance.winner = self.cleaned_data['winner']
 
 

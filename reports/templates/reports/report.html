@@ -1,28 +1,31 @@
 
 
-<div class="report">
-    <br>
-    <p><b>{{ report.player1 }} — {{ report.player2 }}</b></p>
-    <p>{{ report.datetime_created }}</p>
-    {% for game in report.game_set.all %}
-        <p>
-            {{ game.faction1 }}, {{ game.hero1 }}
-            {% if game.winner == 1 %}
-                &gt;
-            {% else %}
-                &lt;
-            {% endif %}
-            {{ game.faction2 }}, {{ game.hero2 }}
-        </p>
-    {% endfor %}
-    <p>Автор отчета: {{ report.author }}</p>
-    <p>Отчет завершен: {{ report.is_commited }}</p>
-    <p>Отчет подтвержден: {{ report.is_confirmed }}</p>
-    {% if report.is_confirmed == None and request.user == report.player2.player %}
-        <button type="button">
-            <a href="{% url 'reports:confirm-report' report.id %}">Подтвердить/отклонить отчет</a>
-        </button>
-    {% endif %}
-    <p>Комментарий {{report.player1}}: {{ report.player1_comment }}</p>
-    <p>Комментарий {{report.player2}}: {{ report.player2_comment }}</p>
+<div class="my-5 row">
+    <div class="ms-2 col-7 border border-2 border-warning">
+        <div class="row"></div>
+        <p class="mt-2 mb-0 fw-bold">{{ report.player1 }} — {{ report.player2 }}</p>
+        <div class="fs-6 mb-0">{{ report.datetime_created }}</div>
+            {% for game in report.game_set.all %}
+                <div class="my-2 d-flex align-items-center bg-warning">
+                    <div class="d-inline-flex">
+                        <div class="pe-2">{{ game.faction1 }},</div>
+                        <div class="pe-2">{{ game.hero1 }}</div>
+                    </div>
+                    <div class="px-2 text-center">
+                        {% if game.winner == 1 %}
+                            &gt;
+                        {% else %}
+                            &lt;
+                        {% endif %}
+                    </div>
+                    <div class="pe-2">{{ game.faction2 }},</div>
+                    <div class="pe-2">{{ game.hero2 }}</div>
+                </div>
+            {% endfor %}
+        <p>Комментарий {{report.player1}}: {{ report.player1_comment }}</p>
+        <p>Комментарий {{report.player2}}: {{ report.player2_comment }}</p>
+        {% if report.is_confirmed == None and request.user == report.player2.player %}
+            <a href="{% url 'reports:confirm-report' report.id %}" class="btn btn-sm btn-secondary">Подтвердить/отклонить отчет</a>
+        {% endif %}
+    </div>
 </div>

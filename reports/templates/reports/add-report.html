@@ -7,15 +7,92 @@
 
     <form action="{% url 'reports:add-report' tournament.id %}" method="post">
         {% csrf_token %}
-        {{ report_form }}
-        <br>
-        {{ game_formset.non_form_errors }}
-        {{ game_formset.management_form }}
-        {% for form in game_formset %}
-            {{ form }}
-            <br>
-        {% endfor %}
-        <input type="submit" value="Завершить отчет">
+        <div>
+            {{ report_form }}
+        </div>
+        <div id="games">
+            {{ game_formset.non_form_errors }}
+            {{ game_formset.management_form }}
+            {% for form in game_formset %}
+                <div class="mt-3">
+                    {{ form }}
+                    <button class="ms-2 btn btn-sm btn-danger" type="button" onclick="onRemoveGameClick(this)" hidden>Удалить игру</button>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div>
+            <button class="mt-3 btn btn-primary" type="button" onclick="onAddGameClick()">Добавить игру</button>
+        </div>
+
+        <div>
+            <input class="mt-3 btn btn-primary" type="submit" value="Завершить отчет">
+        </div>
     </form>
+
+
+    <script>
+        function onAddGameClick(e) {
+            
+            const formCounter = document.getElementById('id_form-TOTAL_FORMS');
+            const counter = formCounter.value;
+            formCounter.value++;
+
+            const divGamesList = document.getElementById('games');
+            const divGame = divGamesList.lastElementChild;
+
+            const delButton = divGame.getElementsByTagName('button')[0];
+            delButton.setAttribute('hidden', '');
+
+            var divNewGame = divGame.cloneNode(true);
+            const sub = '-' + (counter - 1) + '-';
+            const newSub = '-' + counter + '-';
+            for (var i = 0; i < divNewGame.children.length; i++) {
+                const divChild = divNewGame.children[i];
+                if (divChild.nodeName === 'LABEL') {
+                    var forAttr = divChild.getAttribute('for');
+                    forAttr = forAttr.replace(sub, newSub);
+                    divChild.setAttribute('for', forAttr);
+                } else if ((divChild.nodeName === 'SELECT') || (divChild.nodeName === 'INPUT')) {
+                    console.log('----------------')
+                    console.log(divChild.nodeName)
+                    console.log(divChild.id)
+                    var idAttr = divChild.id;
+                    console.log(idAttr)
+                    idAttr = idAttr.replace(sub, newSub);
+                    divChild.id  = idAttr;
+                    console.log('~~~~~~~~~~~~~~~~')
+                    console.log(nameAttr)
+                    console.log(divChild.getAttribute('name'))
+                    var nameAttr = divChild.getAttribute('name');
+                    console.log(nameAttr)
+                    nameAttr = nameAttr.replace(sub, newSub);
+                    divChild.setAttribute('name', nameAttr);
+                } else if (divChild.nodeName === 'BUTTON') {
+                    divChild.removeAttribute('hidden');
+                }
+            }
+
+            divGamesList.appendChild(divNewGame);
+
+        }
+
+        function onRemoveGameClick(e) {
+
+            const divGame = e.parentNode;
+            const divPrevGame = divGame.previousElementSibling;
+
+            divGame.remove();
+            document.getElementById('id_form-TOTAL_FORMS').value--;
+
+            const counter = document.getElementById('id_form-TOTAL_FORMS').value;
+            console.log(counter);
+            if (counter > 1) {
+                const delButton = divPrevGame.getElementsByTagName('button')[0];
+                delButton.removeAttribute('hidden');
+            }
+
+        }
+    </script>
 
 {% endblock %}
